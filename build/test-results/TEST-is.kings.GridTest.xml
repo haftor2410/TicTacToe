@@ -1,28 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.kings.GridTest" tests="18" skipped="0" failures="0" errors="0" timestamp="2014-10-29T21:22:33" hostname="i-d8dcceb3" time="0.067">
+<testsuite name="is.kings.GridTest" tests="20" skipped="0" failures="0" errors="0" timestamp="2014-10-29T21:29:04" hostname="i-d8dcceb3" time="0.063">
   <properties/>
-  <testcase name="testInsertToGridPosition" classname="is.kings.GridTest" time="0.003"/>
+  <testcase name="testInsertToGridPosition" classname="is.kings.GridTest" time="0.004"/>
   <testcase name="testForBiggerNumbers" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testPrintGrid" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonHorizontalRow1" classname="is.kings.GridTest" time="0.024"/>
-  <testcase name="testIfGameIsWonHorizontalRow2" classname="is.kings.GridTest" time="0.0"/>
-  <testcase name="testIfGameIsWonHorizontalRow3" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonFromDiagonalLeftTopToRightBottomWhenItIsNot" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsWonHorizontalRow1" classname="is.kings.GridTest" time="0.022"/>
+  <testcase name="testIfGameIsWonHorizontalRow2" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsWonHorizontalRow3" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonFromDiagonalRightTopToLeftBottomWhenItIsNot" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsWonFromDiagonalLeftTopToRightBottomWhenItIsNot" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testIfGameIsOver" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testIfGameIsTied" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonHorizontalWhenItIsNot" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonHorizontalWhenItIsNot" classname="is.kings.GridTest" time="0.001"/>
   <testcase name="testToInsertASymbol" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testToInsertInAMarkedField" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testInsertForNegativeNumbers" classname="is.kings.GridTest" time="0.0"/>
-  <testcase name="testIfGameIsWonFromDiagonalLeftTopToRightBottom" classname="is.kings.GridTest" time="0.002"/>
-  <testcase name="testIfGameIsWonVerticalWhenItIsNot" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonVerticalColumn1" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonVerticalColumn2" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsWonVerticalColumn3" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsWonFromDiagonalRightTopToLeftBottom" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonFromDiagonalLeftTopToRightBottom" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsWonVerticalWhenItIsNot" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonVerticalColumn1" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonVerticalColumn2" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testIfGameIsWonVerticalColumn3" classname="is.kings.GridTest" time="0.0"/>
   <system-out><![CDATA[You win!
 You win!
 You win!
 The game is tied!
+Computer wins
 You win!
 You win!
 You win!

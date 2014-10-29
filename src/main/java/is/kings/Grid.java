@@ -99,6 +99,17 @@ public class Grid{
 			}
 		}
 
+		if((grid[0][2].xOrO == grid[1][1].xOrO && grid[0][2].xOrO == grid[2][0].xOrO) && (grid[0][2].xOrO == 'X' || grid[0][2].xOrO == 'O') ){
+			if(grid[0][2].xOrO == 'O'){
+				System.out.println("Computer wins");
+				return true;
+			}
+			else{
+				System.out.println("You win!");
+				return true;
+			}
+		}
+
 		if(counter >= 9){
 			System.out.println("The game is tied!");
 			return true;
