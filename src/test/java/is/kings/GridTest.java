@@ -17,4 +17,10 @@ public class GridTest{
 		assertEquals(true, g.insertToGridPosition(4));
 	}
 
+	@Test
+	public void testInsertForNegativeNumbers(){
+		Grid g = new Grid();
+		assertEquals(false, g.insertToGridPosition(-2));
+	}
+
 }
