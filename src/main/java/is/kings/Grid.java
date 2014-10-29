@@ -34,7 +34,13 @@ public class Grid{
 	}
 
 	public String printGrid(){
-		String gridString = ". . . \n. . . \n. . . \n";
+		String gridString = "";
+		for(int i = 0; i < 3; i++){
+			for(int k = 0; k < 3; k++){
+				gridString += "." + " ";
+			}
+			gridString += "\n";
+		}
 		return gridString;
 	}
 }
