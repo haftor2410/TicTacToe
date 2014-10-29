@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.kings.GridTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2014-10-29T20:42:53" hostname="i-d8dcceb3" time="0.047">
+<testsuite name="is.kings.GridTest" tests="12" skipped="0" failures="0" errors="0" timestamp="2014-10-29T21:02:53" hostname="i-d8dcceb3" time="0.07">
   <properties/>
-  <testcase name="testInsertToGridPosition" classname="is.kings.GridTest" time="0.003"/>
-  <testcase name="testForBiggerNumbers" classname="is.kings.GridTest" time="0.002"/>
+  <testcase name="testInsertToGridPosition" classname="is.kings.GridTest" time="0.004"/>
+  <testcase name="testForBiggerNumbers" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testPrintGrid" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testIfGameIsOver" classname="is.kings.GridTest" time="0.0"/>
-  <testcase name="testIfGameIsTied" classname="is.kings.GridTest" time="0.023"/>
+  <testcase name="testIfGameIsWonHorizontalRow1" classname="is.kings.GridTest" time="0.029"/>
+  <testcase name="testIfGameIsWonHorizontalRow2" classname="is.kings.GridTest" time="0.005"/>
+  <testcase name="testIfGameIsWonHorizontalRow3" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsOver" classname="is.kings.GridTest" time="0.001"/>
+  <testcase name="testIfGameIsTied" classname="is.kings.GridTest" time="0.002"/>
+  <testcase name="testIfGameIsWonHorizontalWhenItIsNot" classname="is.kings.GridTest" time="0.0"/>
   <testcase name="testToInsertASymbol" classname="is.kings.GridTest" time="0.0"/>
-  <testcase name="testToInsertInAMarkedField" classname="is.kings.GridTest" time="0.002"/>
-  <testcase name="testInsertForNegativeNumbers" classname="is.kings.GridTest" time="0.0"/>
-  <system-out><![CDATA[The game is tied!
+  <testcase name="testToInsertInAMarkedField" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testInsertForNegativeNumbers" classname="is.kings.GridTest" time="0.001"/>
+  <system-out><![CDATA[You win!
+You win!
+You win!
+The game is tied!
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

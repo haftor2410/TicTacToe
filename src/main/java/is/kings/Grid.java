@@ -62,6 +62,19 @@ public class Grid{
 	}
 
 	public boolean gameConclusion(){
+		for(int i = 0; i < 3; i++){
+			if((grid[i][0].xOrO == grid[i][1].xOrO && grid[i][0].xOrO == grid[i][2].xOrO) && (grid[i][0].xOrO == 'X' || grid[i][0].xOrO == 'O')){
+				if(grid[i][0].xOrO == 'O'){
+					System.out.println("Computer wins");
+					return true;
+				}
+				else{
+					System.out.println("You win!");
+					return true;
+				}
+			}
+		}
+
 		if(counter >= 9){
 			System.out.println("The game is tied!");
 			return true;

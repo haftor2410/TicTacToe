@@ -58,4 +58,41 @@ public class GridTest{
 		assertEquals(true, g.gameConclusion());
 	}
 
+	@Test
+	public void testIfGameIsWonHorizontalWhenItIsNot(){
+		Grid g = new Grid();
+		for(int i = 1; i < 3; i++){
+			g.insertToGridPosition(i, 'X');
+		}
+		g.insertToGridPosition(3, 'O');
+		assertEquals(false, g.gameConclusion());
+	}
+
+	@Test
+	public void testIfGameIsWonHorizontalRow1(){
+		Grid g = new Grid();
+		for(int i = 1; i < 4; i++){
+			g.insertToGridPosition(i, 'X');
+		}
+		assertEquals(true, g.gameConclusion());
+	}
+
+	@Test
+        public void testIfGameIsWonHorizontalRow2(){
+                Grid g = new Grid();
+                for(int i = 4; i < 7; i++){
+                        g.insertToGridPosition(i, 'X');
+                }
+                assertEquals(true, g.gameConclusion());
+        }
+
+	@Test
+        public void testIfGameIsWonHorizontalRow3(){
+                Grid g = new Grid();
+                for(int i = 7; i < 10; i++){
+                        g.insertToGridPosition(i, 'X');
+                }
+                assertEquals(true, g.gameConclusion());
+        }
+
 }
