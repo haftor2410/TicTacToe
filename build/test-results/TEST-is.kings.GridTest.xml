@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="is.kings.GridTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2014-10-29T17:46:20" hostname="i-d8dcceb3" time="0.005">
+  <properties/>
+  <testcase name="testPrintGrid" classname="is.kings.GridTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
