@@ -95,4 +95,42 @@ public class GridTest{
                 assertEquals(true, g.gameConclusion());
         }
 
+	@Test
+	public void testIfGameIsWonVerticalWhenItIsNot(){
+		Grid g = new Grid();
+		g.insertToGridPosition(2, 'O');
+		g.insertToGridPosition(5, 'X');
+		g.insertToGridPosition(8, 'X');
+		assertEquals(false, g.gameConclusion());
+	}
+
+	@Test
+	public void testIfGameIsWonVerticalColumn1(){
+		Grid g = new Grid();
+		g.insertToGridPosition(1, 'X');
+                g.insertToGridPosition(4, 'X');
+                g.insertToGridPosition(7, 'X');
+		assertEquals(true, g.gameConclusion());
+	}
+
+        @Test
+        public void testIfGameIsWonVerticalColumn2(){
+                Grid g = new Grid();
+                g.insertToGridPosition(2, 'X');
+                g.insertToGridPosition(5, 'X');
+                g.insertToGridPosition(8, 'X');
+                assertEquals(true, g.gameConclusion());
+        }
+
+        @Test
+        public void testIfGameIsWonVerticalColumn3(){
+                Grid g = new Grid();
+                g.insertToGridPosition(3, 'X');
+                g.insertToGridPosition(6, 'X');
+                g.insertToGridPosition(9, 'X');
+                assertEquals(true, g.gameConclusion());
+        }
+
+
+
 }
