@@ -23,4 +23,10 @@ public class GridTest{
 		assertEquals(false, g.insertToGridPosition(-2));
 	}
 
+	@Test
+	public void testForBiggerNumbers(){
+		Grid g = new Grid();
+		assertEquals(false, g.insertToGridPosition(12));
+	}
+
 }
