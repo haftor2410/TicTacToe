@@ -61,6 +61,14 @@ public class Grid{
 		return false;
 	}
 
+	public boolean gameConclusion(){
+		if(counter >= 9){
+			System.out.println("The game is tied!");
+			return true;
+		}
+		return false;
+	}
+
 	private void updateGrid(Node position, char humanOrComputer){
 		position.marked = true;
 		position.xOrO = humanOrComputer;

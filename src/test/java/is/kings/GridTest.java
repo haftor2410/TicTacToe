@@ -43,4 +43,19 @@ public class GridTest{
 		assertEquals("X . . \n. . . \n. . . \n", g.printGrid());
 	}
 
+	@Test
+	public void testIfGameIsOver(){
+		Grid g = new Grid();
+		assertEquals(false, g.gameConclusion());
+	}
+
+	@Test
+	public void testIfGameIsTied(){
+		Grid g = new Grid();
+		for(int i = 1; i < 10; i++){
+			g.insertToGridPosition(i, 'Y');
+		}
+		assertEquals(true, g.gameConclusion());
+	}
+
 }
