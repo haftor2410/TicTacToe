@@ -48,7 +48,13 @@ public class Grid{
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
 				if(grid[i][j].getPosition() == thePosition){
-					return true;
+					if(grid[i][j].marked){
+						return false;
+					}
+					else{
+						grid[i][j].marked = true;
+						return true;
+					}
 				}
 			}
 		}

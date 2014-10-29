@@ -29,4 +29,11 @@ public class GridTest{
 		assertEquals(false, g.insertToGridPosition(12));
 	}
 
+	@Test
+	public void testToInsertInAMarkedField(){
+		Grid g = new Grid();
+		g.insertToGridPosition(1);
+		assertEquals(false, g.insertToGridPosition(1));
+	}
+
 }
