@@ -88,12 +88,12 @@ public class Grid{
 
 	private boolean isGameWonHorizontal(){
 		for(int i = 0; i < 3; i++){
-                        if((grid[i][0].xOrO == grid[i][1].xOrO && grid[i][0].xOrO == grid[i][2].xOrO) && (grid[i][0].xOrO == 'X' || grid[i][0].xOrO == 'O')){
+                        if(grid[i][0].xOrO == grid[i][1].xOrO && grid[i][0].xOrO == grid[i][2].xOrO){
                                 if(grid[i][0].xOrO == 'O'){
                                         System.out.println("Computer wins");
                                         return true;
                                 }
-                                else{
+                                else if(grid[i][0].xOrO == 'X'){
                                         System.out.println("You win!");
                                         return true;
                                 }
@@ -104,12 +104,12 @@ public class Grid{
 
 	private boolean isGameWonVertical(){
                 for(int i = 0; i < 3; i++){
-                        if((grid[0][i].xOrO == grid[1][i].xOrO && grid[0][i].xOrO == grid[2][i].xOrO) && (grid[0][i].xOrO == 'X' || grid[0][i].xOrO == 'O')){
+                        if(grid[0][i].xOrO == grid[1][i].xOrO && grid[0][i].xOrO == grid[2][i].xOrO){
                                 if(grid[0][i].xOrO == 'O'){
                                         System.out.println("Computer wins");
                                         return true;
                                 }
-                                else{
+                                else if(grid[0][i].xOrO == 'X'){
                                         System.out.println("You win!");
                                         return true;
                                 }
@@ -119,23 +119,23 @@ public class Grid{
 	}
 
 	private boolean isGameWonDiagonal(){
-                if((grid[0][0].xOrO == grid[1][1].xOrO && grid[0][0].xOrO == grid[2][2].xOrO) && (grid[0][0].xOrO == 'X' || grid[0][0].xOrO == 'O')){
+                if(grid[0][0].xOrO == grid[1][1].xOrO && grid[0][0].xOrO == grid[2][2].xOrO){
                         if(grid[0][0].xOrO == 'O'){
                                 System.out.println("Computer wins");
                                 return true;
                         }
-                        else{
+                        else if(grid[0][0].xOrO == 'X'){
                                 System.out.println("You win!");
                                 return true;
                         }
                 }
 
-                if((grid[0][2].xOrO == grid[1][1].xOrO && grid[0][2].xOrO == grid[2][0].xOrO) && (grid[0][2].xOrO == 'X' || grid[0][2].xOrO == 'O')){
+                if(grid[0][2].xOrO == grid[1][1].xOrO && grid[0][2].xOrO == grid[2][0].xOrO){
                         if(grid[0][2].xOrO == 'O'){
                                 System.out.println("Computer wins");
                                 return true;
                         }
-                        else{
+                        else if(grid[0][2].xOrO == 'X'){
                                 System.out.println("You win!");
                                 return true;
                         }
