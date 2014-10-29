@@ -14,7 +14,7 @@ public class GridTest{
 	@Test
 	public void testInsertToGridPosition(){
 		Grid g = new Grid();
-		assertEquals(true, g.insertToGridPosition());
+		assertEquals(true, g.insertToGridPosition(4));
 	}
 
 }
