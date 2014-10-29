@@ -131,6 +131,23 @@ public class GridTest{
                 assertEquals(true, g.gameConclusion());
         }
 
+	@Test
+	public void testIfGameIsWonFromDiagonalLeftTopToRightBottomWhenItIsNot(){
+		Grid g = new Grid();
+		g.insertToGridPosition(1, 'X');
+		g.insertToGridPosition(5, 'O');
+		g.insertToGridPosition(9, 'X');
+		assertEquals(false, g.gameConclusion());
+	}
+
+        @Test
+        public void testIfGameIsWonFromDiagonalLeftTopToRightBottom(){ 
+                Grid g = new Grid();
+                g.insertToGridPosition(1, 'X');
+                g.insertToGridPosition(5, 'X');
+                g.insertToGridPosition(9, 'X');
+                assertEquals(true, g.gameConclusion());
+        }
 
 
 }
