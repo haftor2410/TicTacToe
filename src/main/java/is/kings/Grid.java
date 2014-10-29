@@ -47,19 +47,33 @@ public class Grid{
 	public boolean insertToGridPosition(int thePosition, char humanOrComputer){
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
-				if(grid[i][j].getPosition() == thePosition){
-					if(grid[i][j].marked){
+				if(isThisTheRightPosition(grid[i][j], thePosition)){
+					if(isFieldMarked(grid[i][j])){
 						return false;
 					}
 					else{
-						grid[i][j].marked = true;
-						grid[i][j].xOrO = humanOrComputer;
+						updateGrid(grid[i][j], humanOrComputer);
 						return true;
 					}
 				}
 			}
 		}
 		return false;
+	}
+
+	private void updateGrid(Node position, char humanOrComputer){
+		position.marked = true;
+		position.xOrO = humanOrComputer;
+		counter++;
+		printGrid();
+	}
+
+	private boolean isThisTheRightPosition(Node position, int compareToPosition){
+		return position.getPosition() == compareToPosition;
+	}
+
+	private boolean isFieldMarked(Node theField){
+		return theField.marked;
 	}
 
 	private String addToString(String gridString, String toBeAdded){

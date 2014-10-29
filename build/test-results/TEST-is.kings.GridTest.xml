@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.kings.GridTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2014-10-29T20:18:49" hostname="i-d8dcceb3" time="0.016">
+<testsuite name="is.kings.GridTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2014-10-29T20:30:23" hostname="i-d8dcceb3" time="0.015">
   <properties/>
   <testcase name="testInsertToGridPosition" classname="is.kings.GridTest" time="0.004"/>
-  <testcase name="testForBiggerNumbers" classname="is.kings.GridTest" time="0.002"/>
-  <testcase name="testPrintGrid" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testToInsertASymbol" classname="is.kings.GridTest" time="0.001"/>
-  <testcase name="testToInsertInAMarkedField" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testForBiggerNumbers" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testPrintGrid" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testToInsertASymbol" classname="is.kings.GridTest" time="0.0"/>
+  <testcase name="testToInsertInAMarkedField" classname="is.kings.GridTest" time="0.001"/>
   <testcase name="testInsertForNegativeNumbers" classname="is.kings.GridTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
