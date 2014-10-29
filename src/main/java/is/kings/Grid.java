@@ -44,7 +44,7 @@ public class Grid{
 		return gridString;
 	}
 
-	public boolean insertToGridPosition(int thePosition){
+	public boolean insertToGridPosition(int thePosition, char humanOrComputer){
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
 				if(grid[i][j].getPosition() == thePosition){
@@ -53,6 +53,7 @@ public class Grid{
 					}
 					else{
 						grid[i][j].marked = true;
+						grid[i][j].xOrO = humanOrComputer;
 						return true;
 					}
 				}

@@ -14,26 +14,33 @@ public class GridTest{
 	@Test
 	public void testInsertToGridPosition(){
 		Grid g = new Grid();
-		assertEquals(true, g.insertToGridPosition(4));
+		assertEquals(true, g.insertToGridPosition(4, 'X'));
 	}
 
 	@Test
 	public void testInsertForNegativeNumbers(){
 		Grid g = new Grid();
-		assertEquals(false, g.insertToGridPosition(-2));
+		assertEquals(false, g.insertToGridPosition(-2, 'X'));
 	}
 
 	@Test
 	public void testForBiggerNumbers(){
 		Grid g = new Grid();
-		assertEquals(false, g.insertToGridPosition(12));
+		assertEquals(false, g.insertToGridPosition(12, 'X'));
 	}
 
 	@Test
 	public void testToInsertInAMarkedField(){
 		Grid g = new Grid();
-		g.insertToGridPosition(1);
-		assertEquals(false, g.insertToGridPosition(1));
+		g.insertToGridPosition(1, 'X');
+		assertEquals(false, g.insertToGridPosition(1, 'X'));
+	}
+
+	@Test
+	public void testToInsertASymbol(){
+		Grid g = new Grid();
+		g.insertToGridPosition(1, 'X');
+		assertEquals("X . . \n. . . \n. . . \n", g.printGrid());
 	}
 
 }
