@@ -62,6 +62,10 @@ public class Grid{
 	}
 
 	public boolean gameConclusion(){
+		return isGameOver();
+	}
+
+	private boolean isGameOver(){
 		for(int i = 0; i < 3; i++){
 			if((grid[i][0].xOrO == grid[i][1].xOrO && grid[i][0].xOrO == grid[i][2].xOrO) && (grid[i][0].xOrO == 'X' || grid[i][0].xOrO == 'O')){
 				if(grid[i][0].xOrO == 'O'){
@@ -114,8 +118,10 @@ public class Grid{
 			System.out.println("The game is tied!");
 			return true;
 		}
+
 		return false;
 	}
+
 
 	private void updateGrid(Node position, char humanOrComputer){
 		position.marked = true;
