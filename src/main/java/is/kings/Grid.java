@@ -37,10 +37,15 @@ public class Grid{
 		String gridString = "";
 		for(int i = 0; i < 3; i++){
 			for(int k = 0; k < 3; k++){
-				gridString += grid[i][k].xOrO + " ";
+				gridString = addToString(gridString, grid[i][k].xOrO + " ");
 			}
-			gridString += "\n";
+			gridString = addToString(gridString, "\n");
 		}
+		return gridString;
+	}
+
+	private String addToString(String gridString, String toBeAdded){
+		gridString += toBeAdded;
 		return gridString;
 	}
 }
