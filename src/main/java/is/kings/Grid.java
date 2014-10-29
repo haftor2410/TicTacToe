@@ -37,7 +37,7 @@ public class Grid{
 		String gridString = "";
 		for(int i = 0; i < 3; i++){
 			for(int k = 0; k < 3; k++){
-				gridString += "." + " ";
+				gridString += grid[i][k].xOrO + " ";
 			}
 			gridString += "\n";
 		}
