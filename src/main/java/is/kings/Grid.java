@@ -44,6 +44,10 @@ public class Grid{
 		return gridString;
 	}
 
+	public boolean insertToGridPosition(){
+		return true;
+	}
+
 	private String addToString(String gridString, String toBeAdded){
 		gridString += toBeAdded;
 		return gridString;

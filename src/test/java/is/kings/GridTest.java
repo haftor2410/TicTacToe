@@ -11,4 +11,10 @@ public class GridTest{
 		assertEquals(". . . \n. . . \n. . . \n", g.printGrid());
 	}
 
+	@Test
+	public void testInsertToGridPosition(){
+		Grid g = new Grid();
+		assertEquals(true, g.insertToGridPosition());
+	}
+
 }
