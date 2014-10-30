@@ -59,4 +59,10 @@ public class HumanPlayerTest{
 		assertEquals(false, h.checkInput("-21"));
 	}
 
+	@Test
+	public void testCheckInputForANumberThatIsTooBig(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(false, h.checkInput("10"));
+	}
+
 }
