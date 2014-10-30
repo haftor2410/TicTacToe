@@ -5,4 +5,10 @@ import org.junit.Test;
 
 public class ComputerPlayerTest{
 
+	@Test
+	public void testComputerMove(){
+		ComputerPlayer c = new ComputerPlayer();
+		assertEquals(true, c.computerMove());
+	}
+
 }
