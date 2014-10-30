@@ -23,4 +23,10 @@ public class HumanPlayerTest{
 		assertEquals(false, h.checkInput("$"));
 	}
 
+	@Test
+	public void testCheckInputForChar(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(false, h.checkInput("H"));
+	}
+
 }
