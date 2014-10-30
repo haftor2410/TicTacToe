@@ -72,4 +72,12 @@ public class HumanPlayerTest{
 		assertEquals(true, h.playerMove(g, 4));
 	}
 
+	@Test
+	public void testToMovePlayerIntoAMarkedField(){
+		Grid g = new Grid();
+		HumanPlayer h = new HumanPlayer();
+		g.insertToGridPosition(1, 'X');
+		assertEquals(false, h.playerMove(g, 1));
+	}
+
 }

@@ -3,6 +3,9 @@ package is.kings;
 public class HumanPlayer{
 
 	public boolean playerMove(Grid g, int number){
+		if(!g.insertToGridPosition(number, 'X')){
+			return false;
+		}
 		return true;
 	}
 
