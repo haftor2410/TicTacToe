@@ -47,4 +47,10 @@ public class HumanPlayerTest{
 		assertEquals(true, h.checkInput("5"));
 	}
 
+	@Test
+	public void testCheckInputForANumberThatIsTooSmall(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(false, h.checkInput("0"));
+	}
+
 }
