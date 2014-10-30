@@ -65,4 +65,11 @@ public class HumanPlayerTest{
 		assertEquals(false, h.checkInput("10"));
 	}
 
+	@Test
+	public void testPlayerMove(){
+		Grid g = new Grid();
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(true, h.playerMove(g, 4));
+	}
+
 }

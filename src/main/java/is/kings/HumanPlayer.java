@@ -2,6 +2,10 @@ package is.kings;
 
 public class HumanPlayer{
 
+	public boolean playerMove(Grid g, int number){
+		return true;
+	}
+
 	public boolean checkInput(String inputString){
 		int inputNumber = 0;
 		try{
