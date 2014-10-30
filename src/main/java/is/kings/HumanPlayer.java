@@ -7,13 +7,8 @@ public class HumanPlayer{
 			return false;
 		}
 		else{
-			g.insertToGridPosition(number, 'X');
 			return true;
 		}
-	}
-
-	private boolean isFieldTaken(Grid g, int number){
-		return !g.insertToGridPosition(number, 'X');
 	}
 
 	public boolean checkInput(String inputString){
@@ -30,6 +25,11 @@ public class HumanPlayer{
 		}
 		return true;
 	}
+
+        private boolean isFieldTaken(Grid g, int number){
+                return !g.insertToGridPosition(number, 'X');
+        }
+
 
 	private int parseString(String inputString){
 		return Integer.parseInt(inputString);

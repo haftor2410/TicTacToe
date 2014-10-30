@@ -11,7 +11,6 @@ public class ComputerPlayer{
 			return false;
 		}
 		else{
-			g.insertToGridPosition(theMove, '0');
 			return true;
 		}
 	}
