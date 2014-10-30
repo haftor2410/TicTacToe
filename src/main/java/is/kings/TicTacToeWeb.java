@@ -6,6 +6,7 @@ import spark.servlet.SparkApplication;
 
 public class TicTacToeWeb implements SparkApplication{
 	public static void main(String[] args){
+		staticFileLocation("/public");
 		SparkApplication TTTWeb = new TicTacToeWeb();
 		String port = System.getenv("PORT");
 		if (port != null) {
@@ -17,13 +18,13 @@ public class TicTacToeWeb implements SparkApplication{
 	public void init(){
 		final Grid grid = new Grid();
 
-		get(new Route("/"){
+		post(new Route("/fight"){
 			@Override
 			public Object handle(Request req, Response res){
-				Grid g = new Grid();
 				StringBuilder html = new StringBuilder();
-				html.append("<pre>").append(g.printGrid()).append("</pre>");
-				return html.toString();
+				html.append("<pre>").append(grid.printGrid()).append("</pre>");
+				String gridOut = html.toString();
+				return gridOut;
 			}
 		});
 	}
