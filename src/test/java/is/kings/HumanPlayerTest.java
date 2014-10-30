@@ -53,4 +53,10 @@ public class HumanPlayerTest{
 		assertEquals(false, h.checkInput("0"));
 	}
 
+	@Test
+	public void testCheckInputForANegativeNumber(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(false, h.checkInput("-21"));
+	}
+
 }
