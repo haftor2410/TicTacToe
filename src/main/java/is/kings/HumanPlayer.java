@@ -3,17 +3,22 @@ package is.kings;
 public class HumanPlayer{
 
 	public boolean checkInput(String inputString){
+		int inputNumber = 0;
 		try{
-			Integer.parseInt(inputString);
+			inputNumber = parseString(inputString);
 		} catch(Exception notInt){
 			System.out.println("Input has to be a number");
 			return false;
 		}
-		if(Integer.parseInt(inputString) < 1 || Integer.parseInt(inputString) > 9){
+		if(inputNumber < 1 || inputNumber > 9){
 			System.out.println("Input is not in the right range");
 			return false;
 		}
 		return true;
+	}
+
+	private int parseString(String inputString){
+		return Integer.parseInt(inputString);
 	}
 
 }
