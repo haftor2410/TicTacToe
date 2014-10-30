@@ -10,7 +10,7 @@ public class HumanPlayer{
 			System.out.println("Input has to be a number");
 			return false;
 		}
-		if(inputNumber < 1 || inputNumber > 9){
+		if(isNumberNotInTheRightRange(inputNumber)){
 			System.out.println("Input is not in the right range");
 			return false;
 		}
@@ -19,6 +19,10 @@ public class HumanPlayer{
 
 	private int parseString(String inputString){
 		return Integer.parseInt(inputString);
+	}
+
+	private boolean isNumberNotInTheRightRange(int inputNumber){
+		return (inputNumber < 1 || inputNumber > 9);
 	}
 
 }
