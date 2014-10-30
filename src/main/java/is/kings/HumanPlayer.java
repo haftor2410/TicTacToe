@@ -1,5 +1,5 @@
 package is.kings;
 
-public class HumanPlayer(){
+public class HumanPlayer{
 
 }
