@@ -6,7 +6,10 @@ public class HumanPlayer{
 		if(!g.insertToGridPosition(number, 'X')){
 			return false;
 		}
-		return true;
+		else{
+			g.insertToGridPosition(number, 'X');
+			return true;
+		}
 	}
 
 	public boolean checkInput(String inputString){

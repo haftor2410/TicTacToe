@@ -80,4 +80,12 @@ public class HumanPlayerTest{
 		assertEquals(false, h.playerMove(g, 1));
 	}
 
+	@Test
+	public void tryToMovePlayerTwiceToTheSameField(){
+		Grid g = new Grid();
+		HumanPlayer h = new HumanPlayer();
+		h.playerMove(g, 1);
+		assertEquals(false, h.playerMove(g, 1));
+	}
+
 }
