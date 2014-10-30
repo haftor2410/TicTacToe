@@ -15,5 +15,16 @@ public class TicTacToeWeb implements SparkApplication{
 	}
 
 	public void init(){
+		final Grid grid = new Grid();
+
+		get(new Route("/"){
+			@Override
+			public Object handle(Request req, Response res){
+				Grid g = new Grid();
+				StringBuilder html = new StringBuilder();
+				html.append("<pre>").append(g.printGrid()).append("</pre>");
+				return html.toString();
+			}
+		});
 	}
 }
