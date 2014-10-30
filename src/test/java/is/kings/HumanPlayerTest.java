@@ -35,4 +35,10 @@ public class HumanPlayerTest{
 		assertEquals(true, h.checkInput("9"));
 	}
 
+	@Test
+	public void testCheckInputForTheNumberOne(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(true, h.checkInput("1"));
+	}
+
 }
