@@ -1,9 +1,19 @@
 package is.kings;
 
+import java.util.Random;
+
 public class ComputerPlayer{
 
-	public boolean computerMove(){
-		return true;
+	public boolean computerMove(Grid g){
+		Random computerMoving = new Random();
+		int theMove = computerMoving.nextInt(9) + 1;
+		if(!g.insertToGridPosition(theMove, 'O')){
+			return false;
+		}
+		else{
+			g.insertToGridPosition(theMove, '0');
+			return true;
+		}
 	}
 
 }
