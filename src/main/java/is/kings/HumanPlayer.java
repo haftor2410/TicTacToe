@@ -3,13 +3,17 @@ package is.kings;
 public class HumanPlayer{
 
 	public boolean playerMove(Grid g, int number){
-		if(!g.insertToGridPosition(number, 'X')){
+		if(isFieldTaken(g, number)){
 			return false;
 		}
 		else{
 			g.insertToGridPosition(number, 'X');
 			return true;
 		}
+	}
+
+	private boolean isFieldTaken(Grid g, int number){
+		return !g.insertToGridPosition(number, 'X');
 	}
 
 	public boolean checkInput(String inputString){
