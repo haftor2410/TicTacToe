@@ -6,15 +6,21 @@ import org.junit.Test;
 public class HumanPlayerTest{
 
 	@Test
-	public void testCheckInsert(){
+	public void testCheckInput(){
 		HumanPlayer h = new HumanPlayer();
 		assertEquals(true, h.checkInput("7"));
 	}
 
 	@Test
-	public void testCheckInsertForString(){
+	public void testCheckInputForString(){
 		HumanPlayer h = new HumanPlayer();
 		assertEquals(false, h.checkInput("Checking"));
+	}
+
+	@Test
+	public void testCheckInputForSymbol(){
+		HumanPlayer h = new HumanPlayer();
+		assertEquals(false, h.checkInput("$"));
 	}
 
 }
