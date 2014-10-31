@@ -18,12 +18,21 @@ public class TicTacToeWeb implements SparkApplication{
 	public void init(){
 		final Grid grid = new Grid();
 		final HumanPlayer hPlayer = new HumanPlayer();
+		final ComputerPlayer cPlayer = new ComputerPlayer();
 
 		post(new Route("/fight"){
 			@Override
 			public Object handle(Request req, Response res){
 				Integer number = Integer.valueOf(req.queryParams("move"));
-				hPlayer.playerMove(grid, number);
+				if(!hPlayer.playerMove(grid, number)){
+					StringBuilder html = new StringBuilder();
+                                	html.append("<pre>").append(grid.printGrid()).append("</pre>");
+					html.append("<pre>").append("Invalid move, try again").append("</pre>");
+                                	String gridOut = html.toString();
+                                	return gridOut;
+				}
+				while(!cPlayer.computerMove(grid)){}
+
 				StringBuilder html = new StringBuilder();
 				html.append("<pre>").append(grid.printGrid()).append("</pre>");
 				String gridOut = html.toString();
