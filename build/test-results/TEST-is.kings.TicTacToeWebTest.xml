@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.kings.TicTacToeWebTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-10-31T21:00:13" hostname="i-d8dcceb3" time="14.109">
+<testsuite name="is.kings.TicTacToeWebTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2014-10-31T21:15:53" hostname="i-d8dcceb3" time="18.366">
   <properties/>
-  <testcase name="testSeleniumH1" classname="is.kings.TicTacToeWebTest" time="8.184"/>
-  <testcase name="testSelenuimParagraph" classname="is.kings.TicTacToeWebTest" time="5.91"/>
+  <testcase name="testSeleniumH1" classname="is.kings.TicTacToeWebTest" time="6.989"/>
+  <testcase name="testSelenuimInputChar" classname="is.kings.TicTacToeWebTest" time="6.189"/>
+  <testcase name="testSelenuimParagraph" classname="is.kings.TicTacToeWebTest" time="5.184"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
