@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="is.kings.TicTacToeWebTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2014-10-31T21:40:00" hostname="i-d8dcceb3" time="37.616">
+<testsuite name="is.kings.TicTacToeWebTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2014-10-31T21:53:44" hostname="i-d8dcceb3" time="42.448">
   <properties/>
-  <testcase name="testSeleniumH1" classname="is.kings.TicTacToeWebTest" time="7.561"/>
-  <testcase name="testSelenuimInputChar" classname="is.kings.TicTacToeWebTest" time="6.164"/>
-  <testcase name="testSelenuimParagraph" classname="is.kings.TicTacToeWebTest" time="5.539"/>
-  <testcase name="testSelenuimGameOver" classname="is.kings.TicTacToeWebTest" time="6.997"/>
-  <testcase name="testSelenuimTooLargeNumber" classname="is.kings.TicTacToeWebTest" time="5.467"/>
-  <testcase name="testSelenuimTooSmallNumber" classname="is.kings.TicTacToeWebTest" time="5.875"/>
+  <testcase name="testSeleniumH1" classname="is.kings.TicTacToeWebTest" time="7.201"/>
+  <testcase name="testSelenuimInputChar" classname="is.kings.TicTacToeWebTest" time="5.483"/>
+  <testcase name="testSelenuimInputSameNumberTwice" classname="is.kings.TicTacToeWebTest" time="6.307"/>
+  <testcase name="testSelenuimParagraph" classname="is.kings.TicTacToeWebTest" time="5.553"/>
+  <testcase name="testSelenuimGameOver" classname="is.kings.TicTacToeWebTest" time="7.173"/>
+  <testcase name="testSelenuimTooLargeNumber" classname="is.kings.TicTacToeWebTest" time="5.474"/>
+  <testcase name="testSelenuimTooSmallNumber" classname="is.kings.TicTacToeWebTest" time="5.241"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
