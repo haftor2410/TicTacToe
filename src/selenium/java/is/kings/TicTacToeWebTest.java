@@ -47,6 +47,16 @@ public class TicTacToeWebTest{
 		assertEquals("Invalid move , try again", driver.findElement(By.xpath("//div[@id='results']/pre[2]")).getText());
 	}
 
+	@Test
+        public void testSelenuimTooSmallNumber() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("New Game")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("0");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		assertEquals("Invalid move , try again", driver.findElement(By.xpath("//div[@id='results']/pre[2]")).getText());
+	}
+
 	@After
   	public void tearDown() throws Exception {
     		driver.quit();
