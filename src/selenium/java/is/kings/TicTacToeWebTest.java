@@ -67,6 +67,43 @@ public class TicTacToeWebTest{
                 assertEquals("Invalid move , try again", driver.findElement(By.xpath("//div[@id='results']/pre[2]")).getText());
 	}
 
+	@Test
+        public void testSelenuimGameOver() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("New Game")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("1");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("2");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("3");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("4");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("5");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("6");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("7");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("8");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("9");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("1");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		assertEquals("GAME OVER", driver.findElement(By.xpath("//div[@id='results']/pre[2]")).getText());
+	}
+
 	@After
   	public void tearDown() throws Exception {
     		driver.quit();
