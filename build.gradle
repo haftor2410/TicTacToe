@@ -35,3 +35,4 @@ jar{
 		attributes("Main-Class": "is.kings.TicTacToe")
 	}
 }
+task stage { dependsOn installApp }
