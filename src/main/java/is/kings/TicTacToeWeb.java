@@ -23,6 +23,15 @@ public class TicTacToeWeb implements SparkApplication{
 		post(new Route("/fight"){
 			@Override
 			public Object handle(Request req, Response res){
+				String inString = String.valueOf(req.queryParams("move"));
+				if(!hPlayer.checkInput(inString)){
+					StringBuilder html = new StringBuilder();
+                                        html.append("<pre>").append(grid.printGrid()).append("</pre>");
+                                        html.append("<pre>").append("Invalid move , try again").append("</pre>");
+                                        String gridOut = html.toString();
+					return gridOut;
+
+				}
 				Integer number = Integer.valueOf(req.queryParams("move"));
 				if(!hPlayer.playerMove(grid, number)){
 					StringBuilder html = new StringBuilder();
