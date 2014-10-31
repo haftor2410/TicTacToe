@@ -5,6 +5,8 @@ import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
 public class TicTacToeWeb implements SparkApplication{
+	private Grid grid = new Grid();
+
 	public static void main(String[] args){
 		staticFileLocation("/public");
 		SparkApplication TTTWeb = new TicTacToeWeb();
@@ -16,10 +18,16 @@ public class TicTacToeWeb implements SparkApplication{
 	}
 
 	public void init(){
-		final Grid grid = new Grid();
 		final HumanPlayer hPlayer = new HumanPlayer();
 		final ComputerPlayer cPlayer = new ComputerPlayer();
-
+		get(new Route("/newgame"){
+			@Override
+                        public Object handle(Request req, Response res){
+				grid = new Grid();
+				res.redirect("/");
+				return res;
+			}
+		});
 		post(new Route("/fight"){
 			@Override
 			public Object handle(Request req, Response res){
