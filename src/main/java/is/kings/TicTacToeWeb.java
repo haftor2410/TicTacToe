@@ -4,6 +4,9 @@ import spark.*;
 import static spark.Spark.*;
 import spark.servlet.SparkApplication;
 
+/**
+ * A class that implements SparkApplication and makes TicTacToe a web app.
+ */
 public class TicTacToeWeb implements SparkApplication{
 	private Grid grid = new Grid();
 

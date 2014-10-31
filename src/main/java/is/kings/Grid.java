@@ -1,26 +1,50 @@
 package is.kings;
 
+ /**
+ * A class that will perfom basic grid functions. Moving signs to the grid, check winner and print out the grid.
+ */
 public class Grid{
 
 	private static Node grid[][];
 	private static int counter;
-
+	/**
+	 * A class that will keep the position of every grid square, if it's occupied and what sign it contains.
+	 */
 	private static class Node{
 		private int position;
 		private boolean marked;
 		private char xOrO;
-
+		/**
+		 * A constructor.
+		 * @param position integer value of grid position.
+		 * @param marked boolean value if grid is marked.
+		 * @param xOrO char value of sign 
+		 */
 		public Node(int position, boolean marked, char xOrO){
 			this.position = position;
 			this.marked = marked;
 			this.xOrO = xOrO;
 		}
-
+		/**
+		 * A get function for position of the grid.
+		 * @return the position.
+		 */
 		public int getPosition() { return position; }
+		/**
+		 * A get function to check if grid square is taken.
+		 * @return grid marked value
+		 */
 		public boolean getMarked() { return marked; }
+		/**
+		 * A get function for the character of the grid square.
+		 * @return The grid square character.
+		 */
 		public char getxOrO() { return xOrO; }
 	}
-
+	/**
+	 * A constructor.
+	 * Sets all grid squares with character '.' and marked value false.
+	 */
 	public Grid(){
 		grid = new Node[3][3];
 		int p = 1;
@@ -33,6 +57,9 @@ public class Grid{
 		}
 	}
 
+	/**
+	 * A function that prints out the game grid.
+	 */
 	public String printGrid(){
 		String gridString = "";
 		for(int i = 0; i < 3; i++){
@@ -44,6 +71,12 @@ public class Grid{
 		return gridString;
 	}
 
+	/**
+	 * A function that inserts a sign into the grid.
+	 * @param thePosition integer value for the position.
+	 * @param humanOrComputer char value for the sign.
+	 * @return true if insert is succesfull, else false.
+	 */
 	public boolean insertToGridPosition(int thePosition, char humanOrComputer){
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
@@ -60,7 +93,10 @@ public class Grid{
 		}
 		return false;
 	}
-
+	/**
+	 * A function that checks if there is a winner or there is a draw.
+	 * @return true if game is over, else false.
+	 */
 	public boolean gameConclusion(){
 		return isGameOver();
 	}

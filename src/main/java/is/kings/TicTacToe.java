@@ -3,6 +3,9 @@ package is.kings;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+ /**
+ * A class that will play the game.
+ */
 public class TicTacToe{
 
 	public static void main(String[] args){
