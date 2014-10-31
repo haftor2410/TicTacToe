@@ -37,7 +37,17 @@ public class TicTacToeWebTest{
     		assertEquals("Enter a number between 1-9", driver.findElement(By.cssSelector("p")).getText());
   	}
 
-  	@After
+	@Test
+        public void testSelenuimInputChar() throws Exception {
+		driver.get(baseUrl);
+		driver.findElement(By.linkText("New Game")).click();
+		driver.findElement(By.id("number")).clear();
+		driver.findElement(By.id("number")).sendKeys("a");
+		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
+		assertEquals("Invalid move , try again", driver.findElement(By.xpath("//div[@id='results']/pre[2]")).getText());
+	}
+
+	@After
   	public void tearDown() throws Exception {
     		driver.quit();
     		String verificationErrorString = verificationErrors.toString();
