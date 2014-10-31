@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- load bootstrap for nicer ui -->
+        <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css$
+    </head>
+    <body>
+        <div class="container">
+            <h1>Play the amazing Tic Tac Toe game</h1>
+            <p>Enter a number between 1-9</p>
+            <form method="post" action="/fight" class="form-inline" role="form">
+		<input type="text" name="number" id="number"/>
+                <button type="submit">MOVE</button>
+            </form>
+		<a href="/newgame">New Game</a>
+	    <hr>
+            	<div id="results"></div>
+            <hr>
+	</div>
+	<!-- Load jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+        <!-- Use ajax to submit form, retrive joke and display on page -->
+        <script>
+        $(document).ready(function() {
+            var form = $('form');
+            form.submit(function( event ) {
+		var number =$("#number").val();
+		$("#number").val("");
+                $.ajax({
+                    type: form.attr('method'),
+                    url: form.attr('action'),
+                    data: 'move=' + number
+                }).done(function(gridOut) {
+                    $('#results').html(gridOut).attr('class', 'alert alert-success');
+		    
+                }).fail(function() {
+                    $('#results').html('Wrong input').attr('class', 'alert alert-danger');
+                });
+                event.preventDefault();
+            });
+        });
+	</script>
+        </div>
+    </body>
+</html>
