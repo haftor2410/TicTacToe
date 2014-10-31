@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="is.kings.TicTacToeWebTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2014-10-31T21:00:13" hostname="i-d8dcceb3" time="14.109">
+  <properties/>
+  <testcase name="testSeleniumH1" classname="is.kings.TicTacToeWebTest" time="8.184"/>
+  <testcase name="testSelenuimParagraph" classname="is.kings.TicTacToeWebTest" time="5.91"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
