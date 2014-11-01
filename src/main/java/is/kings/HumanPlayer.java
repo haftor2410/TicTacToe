@@ -12,6 +12,7 @@ public class HumanPlayer{
          * @return true if move is successful, else false.
          */
 	public boolean playerMove(Grid g, int number){
+		//IsFieldTaken tries to insert to the grid.
 		if(isFieldTaken(g, number)){
 			return false;
 		}
@@ -27,12 +28,15 @@ public class HumanPlayer{
          */
 	public boolean checkInput(String inputString){
 		int inputNumber = 0;
+		//Try to parse the inputString to integer.
 		try{
 			inputNumber = parseString(inputString);
 		} catch(Exception notInt){
+
 			System.out.println("Input has to be a number");
 			return false;
 		}
+
 		if(isNumberNotInTheRightRange(inputNumber)){
 			System.out.println("Input is not in the right range");
 			return false;
@@ -41,6 +45,7 @@ public class HumanPlayer{
 	}
 
         private boolean isFieldTaken(Grid g, int number){
+		//Try to insert to the grid, if field is taken the return true.
                 return !g.insertToGridPosition(number, 'X');
         }
 
@@ -50,6 +55,7 @@ public class HumanPlayer{
 	}
 
 	private boolean isNumberNotInTheRightRange(int inputNumber){
+		//Is 1 <= inputNumber <= 9,, if not return false.
 		return (inputNumber < 1 || inputNumber > 9);
 	}
 

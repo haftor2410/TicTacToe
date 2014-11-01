@@ -80,10 +80,12 @@ public class Grid{
 	public boolean insertToGridPosition(int thePosition, char humanOrComputer){
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
+				//If thePosition is in the grid then check if it can be added to the grid.
 				if(isThisTheRightPosition(grid[i][j], thePosition)){
 					if(isFieldMarked(grid[i][j])){
 						return false;
 					}
+					//If thePosition is in the grid and it's not marked, then update the grid.
 					else{
 						updateGrid(grid[i][j], humanOrComputer);
 						return true;
@@ -123,12 +125,15 @@ public class Grid{
 	}
 
 	private boolean isGameWonHorizontal(){
+		//Check all horizontal lines in the grid, 1-2-3, 4-5-6 and 7-8-9.
 		for(int i = 0; i < 3; i++){
+			//If the line has the computer character.
                         if(grid[i][0].xOrO == grid[i][1].xOrO && grid[i][0].xOrO == grid[i][2].xOrO){
                                 if(grid[i][0].xOrO == 'O'){
                                         System.out.println("Computer wins");
                                         return true;
                                 }
+				//If the line has the human character.
                                 else if(grid[i][0].xOrO == 'X'){
                                         System.out.println("You win!");
                                         return true;
@@ -139,12 +144,15 @@ public class Grid{
 	}
 
 	private boolean isGameWonVertical(){
+		//Check all vertical lines of the grid, 1-4-7, 2-5-8 and 3-6-9.
                 for(int i = 0; i < 3; i++){
                         if(grid[0][i].xOrO == grid[1][i].xOrO && grid[0][i].xOrO == grid[2][i].xOrO){
+				//If the line has the computer character.
                                 if(grid[0][i].xOrO == 'O'){
                                         System.out.println("Computer wins");
                                         return true;
                                 }
+				//If the line has the human character.
                                 else if(grid[0][i].xOrO == 'X'){
                                         System.out.println("You win!");
                                         return true;
@@ -155,22 +163,27 @@ public class Grid{
 	}
 
 	private boolean isGameWonDiagonal(){
+		//Check the diogonal line 1-5-9.
                 if(grid[0][0].xOrO == grid[1][1].xOrO && grid[0][0].xOrO == grid[2][2].xOrO){
+			//If the line has the computer character.
                         if(grid[0][0].xOrO == 'O'){
                                 System.out.println("Computer wins");
                                 return true;
                         }
+			//If the line has the human character.
                         else if(grid[0][0].xOrO == 'X'){
                                 System.out.println("You win!");
                                 return true;
                         }
                 }
-
+		//Check the diogonal line 3-5-7.
                 if(grid[0][2].xOrO == grid[1][1].xOrO && grid[0][2].xOrO == grid[2][0].xOrO){
+			//If the line has the computer character.
                         if(grid[0][2].xOrO == 'O'){
                                 System.out.println("Computer wins");
                                 return true;
                         }
+			//If the line has the human character.
                         else if(grid[0][2].xOrO == 'X'){
                                 System.out.println("You win!");
                                 return true;
@@ -181,6 +194,7 @@ public class Grid{
 	}
 
 	private boolean isGameTied(){
+		//Check if there have been 9 moves in the grid.
 		if(counter >= 9){
                         System.out.println("The game is tied!");
                         return true;
@@ -189,21 +203,27 @@ public class Grid{
 	}
 
 	private void updateGrid(Node position, char humanOrComputer){
+		//Mark the grid position as occupied.
 		position.marked = true;
+		//Set the grids charachter to human or computer.
 		position.xOrO = humanOrComputer;
+		//Raise the move counter.
 		counter++;
 		printGrid();
 	}
 
 	private boolean isThisTheRightPosition(Node position, int compareToPosition){
+		//Return true if compareToPosition is in the grid.
 		return position.getPosition() == compareToPosition;
 	}
 
 	private boolean isFieldMarked(Node theField){
+		//Return true if the theField in the grid is occupied.
 		return theField.marked;
 	}
 
 	private String addToString(String gridString, String toBeAdded){
+		//Add toBeAdded to the end of gridString.
 		gridString += toBeAdded;
 		return gridString;
 	}
