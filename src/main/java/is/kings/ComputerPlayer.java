@@ -31,7 +31,7 @@ public class ComputerPlayer{
 
 	private int generateNumber(){
 		Random computerMoving = new Random();
-		//nextInt return random number Ã0 <= x <= 8, + 1 to get 1 <= x <= 9
+		//nextInt return random number 0 <= x <= 8, + 1 to get 1 <= x <= 9
 		return computerMoving.nextInt(9) + 1;
 	}
 
