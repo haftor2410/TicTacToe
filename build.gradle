@@ -10,6 +10,8 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'jacoco'
+
 mainClassName = "is.kings.TicTacToeWeb"
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -81,3 +83,11 @@ jar{
 	}
 }
 task stage { dependsOn installApp }
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination "${buildDir}/jacocoHtml"
+    }
+}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>TicTacToeWeb.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">is.kings</a> &gt; <span class="el_source">TicTacToeWeb.java</span></div><h1>TicTacToeWeb.java</h1><pre class="source lang-java linenums">package is.kings;
+
+import spark.*;
+import static spark.Spark.*;
+import spark.servlet.SparkApplication;
+
+<span class="nc" id="L7">public class TicTacToeWeb implements SparkApplication{</span>
+<span class="nc" id="L8">	private Grid grid = new Grid();</span>
+
+	public static void main(String[] args){
+<span class="nc" id="L11">		staticFileLocation(&quot;/public&quot;);</span>
+<span class="nc" id="L12">		SparkApplication TTTWeb = new TicTacToeWeb();</span>
+<span class="nc" id="L13">		String port = System.getenv(&quot;PORT&quot;);</span>
+<span class="nc bnc" id="L14" title="All 2 branches missed.">		if (port != null) {</span>
+<span class="nc" id="L15">           		 setPort(Integer.valueOf(port));</span>
+       		 }
+<span class="nc" id="L17">		TTTWeb.init();</span>
+<span class="nc" id="L18">	}</span>
+
+	public void init(){
+<span class="nc" id="L21">		final HumanPlayer hPlayer = new HumanPlayer();</span>
+<span class="nc" id="L22">		final ComputerPlayer cPlayer = new ComputerPlayer();</span>
+<span class="nc" id="L23">		get(new Route(&quot;/newgame&quot;){</span>
+			@Override
+                        public Object handle(Request req, Response res){
+<span class="nc" id="L26">				grid = new Grid();</span>
+<span class="nc" id="L27">				res.redirect(&quot;/&quot;);</span>
+<span class="nc" id="L28">				return res;</span>
+			}
+		});
+<span class="nc" id="L31">		post(new Route(&quot;/fight&quot;){</span>
+			@Override
+			public Object handle(Request req, Response res){
+<span class="nc bnc" id="L34" title="All 2 branches missed.">				if(grid.gameConclusion()){</span>
+<span class="nc" id="L35">					StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L36">                                        html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L37">                                        html.append(&quot;&lt;pre&gt;&quot;).append(&quot;GAME OVER&quot;).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L38">                                        String gridOut = html.toString();</span>
+<span class="nc" id="L39">                                        return gridOut;</span>
+				}
+
+<span class="nc" id="L42">				String inString = String.valueOf(req.queryParams(&quot;move&quot;));</span>
+<span class="nc bnc" id="L43" title="All 2 branches missed.">				if(!hPlayer.checkInput(inString)){</span>
+<span class="nc" id="L44">					StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L45">                                        html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L46">                                        html.append(&quot;&lt;pre&gt;&quot;).append(&quot;Invalid move , try again&quot;).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L47">                                        String gridOut = html.toString();</span>
+<span class="nc" id="L48">					return gridOut;</span>
+
+				}
+<span class="nc" id="L51">				Integer number = Integer.valueOf(req.queryParams(&quot;move&quot;));</span>
+<span class="nc bnc" id="L52" title="All 2 branches missed.">				if(!hPlayer.playerMove(grid, number)){</span>
+<span class="nc" id="L53">					StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L54">                                	html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L55">					html.append(&quot;&lt;pre&gt;&quot;).append(&quot;Invalid move, try again&quot;).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L56">                                	String gridOut = html.toString();</span>
+<span class="nc" id="L57">                                	return gridOut;</span>
+				}
+<span class="nc bnc" id="L59" title="All 2 branches missed.">				if(grid.gameConclusion()){</span>
+<span class="nc" id="L60">					StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L61">                                        html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L62">                                        html.append(&quot;&lt;pre&gt;&quot;).append(&quot;YOU WIN!&quot;).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L63">                                        String gridOut = html.toString();</span>
+<span class="nc" id="L64">                                        return gridOut;</span>
+				}
+<span class="nc bnc" id="L66" title="All 2 branches missed.">				while(!cPlayer.computerMove(grid)){}</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">				if(grid.gameConclusion()){</span>
+<span class="nc" id="L68">                                        StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L69">                                        html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L70">                                        html.append(&quot;&lt;pre&gt;&quot;).append(&quot;COMPUTER WINS!&quot;).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L71">                                        String gridOut = html.toString();</span>
+<span class="nc" id="L72">                                        return gridOut;</span>
+                                }
+<span class="nc" id="L74">				StringBuilder html = new StringBuilder();</span>
+<span class="nc" id="L75">				html.append(&quot;&lt;pre&gt;&quot;).append(grid.printGrid()).append(&quot;&lt;/pre&gt;&quot;);</span>
+<span class="nc" id="L76">				String gridOut = html.toString();</span>
+<span class="nc" id="L77">				return gridOut;</span>
+			}
+		});
+<span class="nc" id="L80">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>

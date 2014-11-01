@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Grid.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">TicTacToe</a> &gt; <a href="index.source.html" class="el_package">is.kings</a> &gt; <span class="el_source">Grid.java</span></div><h1>Grid.java</h1><pre class="source lang-java linenums">package is.kings;
+
+public class Grid{
+
+	private static Node grid[][];
+	private static int counter;
+
+	private static class Node{
+		private int position;
+		private boolean marked;
+		private char xOrO;
+
+<span class="fc" id="L13">		public Node(int position, boolean marked, char xOrO){</span>
+<span class="fc" id="L14">			this.position = position;</span>
+<span class="fc" id="L15">			this.marked = marked;</span>
+<span class="fc" id="L16">			this.xOrO = xOrO;</span>
+<span class="fc" id="L17">		}</span>
+
+<span class="fc" id="L19">		public int getPosition() { return position; }</span>
+<span class="nc" id="L20">		public boolean getMarked() { return marked; }</span>
+<span class="nc" id="L21">		public char getxOrO() { return xOrO; }</span>
+	}
+
+<span class="fc" id="L24">	public Grid(){</span>
+<span class="fc" id="L25">		grid = new Node[3][3];</span>
+<span class="fc" id="L26">		int p = 1;</span>
+<span class="fc" id="L27">		counter = 0;</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">		for(int i = 0; i &lt; 3; i++){</span>
+<span class="fc bfc" id="L29" title="All 2 branches covered.">			for(int j = 0; j &lt; 3; j++){</span>
+<span class="fc" id="L30">				grid[i][j] = new Node(p, false, '.');</span>
+<span class="fc" id="L31">				p++;</span>
+			}
+		}
+<span class="fc" id="L34">	}</span>
+
+	public String printGrid(){
+<span class="fc" id="L37">		String gridString = &quot;&quot;;</span>
+<span class="fc bfc" id="L38" title="All 2 branches covered.">		for(int i = 0; i &lt; 3; i++){</span>
+<span class="fc bfc" id="L39" title="All 2 branches covered.">			for(int k = 0; k &lt; 3; k++){</span>
+<span class="fc" id="L40">				gridString = addToString(gridString, grid[i][k].xOrO + &quot; &quot;);</span>
+			}
+<span class="fc" id="L42">			gridString = addToString(gridString, &quot;\n&quot;);</span>
+		}
+<span class="fc" id="L44">		return gridString;</span>
+	}
+
+	public boolean insertToGridPosition(int thePosition, char humanOrComputer){
+<span class="fc bfc" id="L48" title="All 2 branches covered.">		for(int i = 0; i &lt; 3; i++){</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">			for(int j = 0; j &lt; 3; j++){</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">				if(isThisTheRightPosition(grid[i][j], thePosition)){</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">					if(isFieldMarked(grid[i][j])){</span>
+<span class="fc" id="L52">						return false;</span>
+					}
+					else{
+<span class="fc" id="L55">						updateGrid(grid[i][j], humanOrComputer);</span>
+<span class="fc" id="L56">						return true;</span>
+					}
+				}
+			}
+		}
+<span class="fc" id="L61">		return false;</span>
+	}
+
+	public boolean gameConclusion(){
+<span class="fc" id="L65">		return isGameOver();</span>
+	}
+
+	private boolean isGameOver(){
+<span class="fc bfc" id="L69" title="All 2 branches covered.">		if(isGameWonHorizontal()){</span>
+<span class="fc" id="L70">			return true;</span>
+		}
+
+<span class="fc bfc" id="L73" title="All 2 branches covered.">		if(isGameWonVertical()){</span>
+<span class="fc" id="L74">			return true;</span>
+		}
+
+
+<span class="fc bfc" id="L78" title="All 2 branches covered.">		if(isGameWonDiagonal()){</span>
+<span class="fc" id="L79">			return true;</span>
+		}
+
+<span class="fc bfc" id="L82" title="All 2 branches covered.">		if(isGameTied()){</span>
+<span class="fc" id="L83">			return true;</span>
+		}
+
+<span class="fc" id="L86">		return false;</span>
+	}
+
+	private boolean isGameWonHorizontal(){
+<span class="fc bfc" id="L90" title="All 2 branches covered.">		for(int i = 0; i &lt; 3; i++){</span>
+<span class="fc bfc" id="L91" title="All 4 branches covered.">                        if(grid[i][0].xOrO == grid[i][1].xOrO &amp;&amp; grid[i][0].xOrO == grid[i][2].xOrO){</span>
+<span class="pc bpc" id="L92" title="1 of 2 branches missed.">                                if(grid[i][0].xOrO == 'O'){</span>
+<span class="nc" id="L93">                                        System.out.println(&quot;Computer wins&quot;);</span>
+<span class="nc" id="L94">                                        return true;</span>
+                                }
+<span class="fc bfc" id="L96" title="All 2 branches covered.">                                else if(grid[i][0].xOrO == 'X'){</span>
+<span class="fc" id="L97">                                        System.out.println(&quot;You win!&quot;);</span>
+<span class="fc" id="L98">                                        return true;</span>
+                                }
+                        }
+                }
+<span class="fc" id="L102">		return false;</span>
+	}
+
+	private boolean isGameWonVertical(){
+<span class="fc bfc" id="L106" title="All 2 branches covered.">                for(int i = 0; i &lt; 3; i++){</span>
+<span class="fc bfc" id="L107" title="All 4 branches covered.">                        if(grid[0][i].xOrO == grid[1][i].xOrO &amp;&amp; grid[0][i].xOrO == grid[2][i].xOrO){</span>
+<span class="pc bpc" id="L108" title="1 of 2 branches missed.">                                if(grid[0][i].xOrO == 'O'){</span>
+<span class="nc" id="L109">                                        System.out.println(&quot;Computer wins&quot;);</span>
+<span class="nc" id="L110">                                        return true;</span>
+                                }
+<span class="fc bfc" id="L112" title="All 2 branches covered.">                                else if(grid[0][i].xOrO == 'X'){</span>
+<span class="fc" id="L113">                                        System.out.println(&quot;You win!&quot;);</span>
+<span class="fc" id="L114">                                        return true;</span>
+                                }
+                        }
+                }
+<span class="fc" id="L118">		return false;</span>
+	}
+
+	private boolean isGameWonDiagonal(){
+<span class="pc bpc" id="L122" title="1 of 4 branches missed.">                if(grid[0][0].xOrO == grid[1][1].xOrO &amp;&amp; grid[0][0].xOrO == grid[2][2].xOrO){</span>
+<span class="pc bpc" id="L123" title="1 of 2 branches missed.">                        if(grid[0][0].xOrO == 'O'){</span>
+<span class="nc" id="L124">                                System.out.println(&quot;Computer wins&quot;);</span>
+<span class="nc" id="L125">                                return true;</span>
+                        }
+<span class="fc bfc" id="L127" title="All 2 branches covered.">                        else if(grid[0][0].xOrO == 'X'){</span>
+<span class="fc" id="L128">                                System.out.println(&quot;You win!&quot;);</span>
+<span class="fc" id="L129">                                return true;</span>
+                        }
+                }
+
+<span class="fc bfc" id="L133" title="All 4 branches covered.">                if(grid[0][2].xOrO == grid[1][1].xOrO &amp;&amp; grid[0][2].xOrO == grid[2][0].xOrO){</span>
+<span class="fc bfc" id="L134" title="All 2 branches covered.">                        if(grid[0][2].xOrO == 'O'){</span>
+<span class="fc" id="L135">                                System.out.println(&quot;Computer wins&quot;);</span>
+<span class="fc" id="L136">                                return true;</span>
+                        }
+<span class="pc bpc" id="L138" title="1 of 2 branches missed.">                        else if(grid[0][2].xOrO == 'X'){</span>
+<span class="nc" id="L139">                                System.out.println(&quot;You win!&quot;);</span>
+<span class="nc" id="L140">                                return true;</span>
+                        }
+                }
+
+<span class="fc" id="L144">		return false;</span>
+	}
+
+	private boolean isGameTied(){
+<span class="fc bfc" id="L148" title="All 2 branches covered.">		if(counter &gt;= 9){</span>
+<span class="fc" id="L149">                        System.out.println(&quot;The game is tied!&quot;);</span>
+<span class="fc" id="L150">                        return true;</span>
+                }
+<span class="fc" id="L152">		return false;</span>
+	}
+
+	private void updateGrid(Node position, char humanOrComputer){
+<span class="fc" id="L156">		position.marked = true;</span>
+<span class="fc" id="L157">		position.xOrO = humanOrComputer;</span>
+<span class="fc" id="L158">		counter++;</span>
+<span class="fc" id="L159">		printGrid();</span>
+<span class="fc" id="L160">	}</span>
+
+	private boolean isThisTheRightPosition(Node position, int compareToPosition){
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		return position.getPosition() == compareToPosition;</span>
+	}
+
+	private boolean isFieldMarked(Node theField){
+<span class="fc" id="L167">		return theField.marked;</span>
+	}
+
+	private String addToString(String gridString, String toBeAdded){
+<span class="fc" id="L171">		gridString += toBeAdded;</span>
+<span class="fc" id="L172">		return gridString;</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.1.201405082137</span></div></body></html>
